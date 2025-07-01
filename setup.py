@@ -201,7 +201,7 @@ def get_extensions():
         extra_compile_args = {'cxx': []}
 
         if platform.system() != 'Windows':
-            extra_compile_args['cxx'] = ['-std=c++14']
+            extra_compile_args['cxx'] = ['-std=c++17']
         else:
             # TODO: In Windows, C++17 is chosen to compile extensions in
             # PyTorch2.0 , but a compile error will be reported.
@@ -418,7 +418,7 @@ def get_extensions():
         # to compile those cpp files, so there is no need to add the
         # argument
         if 'nvcc' in extra_compile_args and platform.system() != 'Windows':
-            extra_compile_args['nvcc'] += ['-std=c++14']
+            extra_compile_args['nvcc'] += ['-std=c++17']
 
         ext_ops = extension(
             name=ext_name,
